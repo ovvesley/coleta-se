@@ -25,14 +25,6 @@ export default class Main extends Component {
   });
 
   render() {
-    const styles = StyleSheet.create({
-      container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center"
-      }
-    });
     return (
       <BottomNavigation
         navigationState={this.state}
