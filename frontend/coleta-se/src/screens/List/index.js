@@ -12,7 +12,9 @@ export default class List extends Component {
 
   async getSpots() {
     try {
-      const spotsApi = await fetch('https://localhost:1234/src/main.php');
+      const spotsApi = await fetch('http://localhost:1234/backend/src/main.php', {
+        method: 'GET',
+      });
       const spot = await spotsApi.json();
       this.setState({ spots: spot.results, loading: false});
       alert(spot.results);
@@ -23,14 +25,14 @@ export default class List extends Component {
 
   renderItem(data) {
     return (
-      <Text>{data.name, data.age}</Text>
+      <Text>{data.nome, data.idade}</Text>
     );
   }
 
   render() {
-    
+    this.getSpots();
     const { spots, loading } = this.state;
-    
+    console.log(spots);
     if (!loading) {
       return (
         <View style={styles.container}>
