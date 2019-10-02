@@ -37,6 +37,11 @@ export default class List extends Component {
     });
   }
 
+  renderItem = ({ item }) => (
+    <View style={styles.item}>
+      <Text>{item.login}</Text>
+    </View>
+  );
 
   render() {
 
@@ -47,8 +52,10 @@ export default class List extends Component {
     return !loading ? (
         <View style={styles.container}>
           <FlatList
+            style={styles.lista}
+            contentContainerStyle={styles.container}
             data={spots}
-            renderItem={ ({item}) => <Text>{ item.login }</Text> } 
+            renderItem={ ({item}) => <Text style={styles.item}>{ item.login }</Text> }
           />
         </View>
       ) : (
@@ -62,15 +69,21 @@ export default class List extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: 22,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#ffffff"
+    paddingHorizontal: 20,
+    backgroundColor: '#8000FF',
   },
+
   item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
+    backgroundColor: '#EEE',
+    marginTop: 20,
+    padding: 30,
+    textAlign: "center",
+    fontSize: 20,
   },
+
+  lista: {
+    marginTop: 0,
+    padding: 0,
+  },
+
 });
