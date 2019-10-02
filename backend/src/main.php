@@ -6,4 +6,4 @@ $a = array(
     'idade' => 18
 );
 
-echo json_encode($a);
+echo json_decode($a);

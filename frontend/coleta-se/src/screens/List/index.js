@@ -12,44 +12,50 @@ export default class List extends Component {
 
   async getSpots() {
     try {
-      const spotsApi = await fetch('http://localhost:1234/backend/src/main.php', {
+      const spotsApi = await fetch('https://api.github.com/users', {
         method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credetials: "same-origin"
       });
-      const spot = await spotsApi.json();
-      this.setState({ spots: spot.results, loading: false});
-      alert(spot.results);
+      return await spotsApi.json();
     } catch (error) {
       console.log(error);
     }
   }
 
-  renderItem(data) {
-    return (
-      <Text>{data.nome, data.idade}</Text>
-    );
+  componentDidMount() {
+    this.getSpots()
+    .then(data => {
+      //console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        data[i]['key'] = i+'a';
+      }
+    
+      this.setState({ spots: data, loading: false });  
+    });
   }
 
+
   render() {
-    this.getSpots();
+
     const { spots, loading } = this.state;
     console.log(spots);
-    if (!loading) {
-      return (
+
+
+    return !loading ? (
         <View style={styles.container}>
           <FlatList
             data={spots}
-            renderItem={this.renderItem}
-            onEndReached={this.getSpots}
+            renderItem={ ({item}) => <Text>{ item.login }</Text> } 
           />
         </View>
-      );
-    } else {
-      return (
+      ) : (
         <View style={styles.container}>
           <Text>No data</Text>
         </View>
-      );
-    }
+    );
   }
 }
 
