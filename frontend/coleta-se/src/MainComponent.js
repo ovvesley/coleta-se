@@ -14,15 +14,44 @@ export default class Main extends Component {
         { key: "mapa", title: "Mapa", icon: "map" },
         { key: "list", title: "Lista", icon: "list" },
         { key: "info", title: "Info", icon: "info" }
-      ]
+      ],
+      spots: [],
     };
   }
+
+  componentDidMount() {
+    this.getSpots().then(data => {
+      //console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        data[i]['key'] = i+'a';
+      }
+    
+      this.setState({ spots: data });  
+    });
+  }
+
+
   _handleIndexChange = index => this.setState({ index });
   _renderScene = BottomNavigation.SceneMap({
-    mapa: Mapa,
-    list: List,
+    mapa: () => <Mapa spots={this.state.spots} />,
+    list: () => <List spots={this.state.spots} />,
     info: Info
   });
+
+  async getSpots() {
+    try {
+      const spotsApi = await fetch('https://api.github.com/users', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credetials: "same-origin"
+      });
+      return await spotsApi.json();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   render() {
     return (
