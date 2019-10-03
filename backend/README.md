@@ -41,4 +41,4 @@ LET'S get this going! Boa sorte, Enzo do brevíssimo futuro.
 Neste arquivo, há tudo que vocês precisam para criar o BD pelo terminal. Deixei alguma inserções preparadas para vocês testarem os dados no frontend.
 
 ### src
-    Há dois arquivos nesse. Um é o que o Dias estava testando *main.php* e o outro é o que eu fiz *index.php* com o método procedural que gera o JSON no navegador. Eu irei refazer usando PDO logo logo, mas acho que aí já tem o que vocês precisam. 
+Há dois arquivos nesse. Um é o que o Dias estava testando *main.php* e o outro é o que eu fiz *index.php* com o método procedural que gera o JSON no navegador. Eu irei refazer usando PDO logo logo, mas acho que aí já tem o que vocês precisam. 
