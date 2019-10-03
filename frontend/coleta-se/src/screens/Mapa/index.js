@@ -17,14 +17,12 @@ export default class Mapa extends Component {
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       position => {
-        console.log("wokeeey");
-        console.log(position);
         this.setState({
           region: {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
-            latitudeDelta: 0.0100,
-            longitudeDelta: 0.0100
+            latitudeDelta: 0.01,
+            longitudeDelta: 0.01
           }
         });
       },
