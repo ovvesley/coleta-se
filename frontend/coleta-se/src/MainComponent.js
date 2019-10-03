@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { View, StyleSheet } from "react-native";
 import { BottomNavigation, Text } from "react-native-paper";
+import url from "./shared/baseUrl";
 import Info from "./screens/Info";
 import List from "./screens/List";
 import Mapa from "./screens/Mapa";
@@ -15,21 +15,18 @@ export default class Main extends Component {
         { key: "list", title: "Lista", icon: "list" },
         { key: "info", title: "Info", icon: "info" }
       ],
-      spots: [],
+      spots: []
     };
   }
 
   componentDidMount() {
     this.getSpots().then(data => {
-      //console.log(data);
       for (let i = 0; i < data.length; i++) {
-        data[i]['key'] = i+'a';
+        data[i]["key"] = i + "a";
       }
-    
-      this.setState({ spots: data });  
+      this.setState({ spots: data });
     });
   }
-
 
   _handleIndexChange = index => this.setState({ index });
   _renderScene = BottomNavigation.SceneMap({
@@ -40,10 +37,10 @@ export default class Main extends Component {
 
   async getSpots() {
     try {
-      const spotsApi = await fetch('https://api.github.com/users', {
-        method: 'GET',
+      const spotsApi = await fetch(url, {
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json"
         },
         credetials: "same-origin"
       });
