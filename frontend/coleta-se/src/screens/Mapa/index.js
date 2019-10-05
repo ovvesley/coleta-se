@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import MapView from "react-native-maps";
-import { Permission } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
+import MapView, { Marker } from "react-native-maps";
 export default class Mapa extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +10,33 @@ export default class Mapa extends Component {
         longitude: -43.2096,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421
-      }
+      },
+      markers: [
+        {
+          coordinate: { latitude: -22.905, longitude: -43.2096 },
+          description: "Lixeira de Teste",
+          title: "Lixeira boladona",
+          id: 1
+        },
+        {
+          coordinate: { latitude: -22.800, longitude: -43.2096 },
+          description: "Lixeira de Teste",
+          title: "Lixeira boladona",
+          id: 2
+        },
+        {
+          coordinate: { latitude: -22.600, longitude: -43.2096 },
+          description: "Lixeira de Teste",
+          title: "Lixeira boladona",
+          id: 3
+        },
+        {
+          coordinate: { latitude: -22.700, longitude: -43.2096 },
+          description: "Lixeira de Teste",
+          title: "Lixeira boladona",
+          id: 4
+        }
+      ]
     };
   }
   componentDidMount() {
@@ -45,11 +70,21 @@ export default class Mapa extends Component {
       }
     });
     return (
-      <MapView
-        style={{ flex: 1 }}
-        region={this.state.region}
-        showsUserLocation
-      />
+      <MapView style={{ flex: 1 }} region={this.state.region} showsUserLocation>
+        {this.state.markers.map(marker => (
+          <Marker
+            coordinate={marker.coordinate}
+            title={marker.title}
+            description={marker.title}
+            key={marker.id}
+          >
+            <Image
+              source={require("../../../assets/carro_de_lixo.png")}
+              style={{ width: 40, height: 40 }}
+            />
+          </Marker>
+        ))}
+      </MapView>
     );
   }
 }
