@@ -56,6 +56,8 @@ export default class Main extends Component {
         navigationState={this.state}
         onIndexChange={this._handleIndexChange}
         renderScene={this._renderScene}
+        barStyle={{backgroundColor: "#f2f2f2"}}
+        activeColor="#8c655d"
       />
     );
   }
