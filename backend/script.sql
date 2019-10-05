@@ -22,3 +22,7 @@ CREATE TABLE local(
 INSERT INTO local VALUES(NULL, 1234, 4567, "Testando 1", "TEST1"); 
 INSERT INTO local VALUES(NULL, 888, 999, "ESTE TESTE HÁ DE FUNCIONAR, SE DEUS QUISER", "TESTE2");
 INSERT INTO local VALUES(NULL, 000, 1010, "Dias, Maia, Wesley e Amaral são os brads e eu sou horrível", "TESTE 3");
+
+
+--Inserções dos dados que o Amaral passou:
+  --NÃO TERMINEI, TAVA FAZENDO MAS O WESLEY DISSE Q VAI TERMINAR JÁ Q TO FORA DE CASA

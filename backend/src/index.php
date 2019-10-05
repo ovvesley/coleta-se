@@ -1,7 +1,7 @@
 <?php
   $host = 'localhost';
-  $user = 'root'; //Insira usuario
-  $pass = ''; //Insira senha
+  $user = 'enzo-z'; //Insira usuario
+  $pass = 'computacao10Z-'; //Insira senha
   $name = 'coletase';
   $connect = mysqli_connect($host, $user, $pass, $name);
     if(!$connect){
@@ -11,15 +11,14 @@
         $sql = "SELECT * FROM local";
         if(mysqli_query($connect, "SET CHARACTER SET 'utf8'")  && $result=mysqli_query($connect, $sql)){
             $data = [];
+            $lt = [];
             $i = 0;
             while($row = mysqli_fetch_assoc($result)){
                 $data[$i]= [
-                    'id' => $row['id_local'],
-                    'titulo' => $row['titulo'],
-                    'latitude' => $row['latitude'],
-                    'longitude' => $row['longitude'],
-                    'descricao' => $row['descricao']
-            
+                    'coordinate' => array( 'latitude' =>$row['latitude'], 'longitude'=>$row['longitude']),
+                    'description' => $row['descricao'],
+                    'title' => $row['titulo'],
+                    'id' => $row['id_local']
                 ];
                 $i++;
             }
@@ -34,5 +33,4 @@
         }
     }
 
-  
 
