@@ -15,9 +15,9 @@
             $i = 0;
             while($row = mysqli_fetch_assoc($result)){
                 $data[$i]= [
-                    'lt' => array( 'latitude' =>$row['latitude'], 'longitude'=>$row['longitude']),
-                    'descricao' => $row['descricao'],
-                    'titulo' => $row['titulo'],
+                    'coordinate' => array( 'latitude' =>$row['latitude'], 'longitude'=>$row['longitude']),
+                    'description' => $row['descricao'],
+                    'title' => $row['titulo'],
                     'id' => $row['id_local']
                 ];
                 $i++;
@@ -33,5 +33,4 @@
         }
     }
 
-  
 
