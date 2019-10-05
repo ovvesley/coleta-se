@@ -67,7 +67,7 @@ export default class Main extends Component {
         activeColor="#8c655d"
       />
     ) : (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' }}>
         <Text style={{ fontSize: 20 }}>Loading</Text>
       </View>
     );

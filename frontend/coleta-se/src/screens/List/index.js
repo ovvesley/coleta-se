@@ -4,9 +4,6 @@ import { Card } from "react-native-elements";
 import { styles } from "./styles";
 
 export default function List({ spots }) {
-
-  console.log(spots);
-
   return spots && spots.length > 0 ? (
     <View style={styles.viewWithData}>
       <FlatList 
