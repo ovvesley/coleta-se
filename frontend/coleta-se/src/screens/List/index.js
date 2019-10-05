@@ -21,7 +21,7 @@ export default function List({ spots }) {
       />
     </View>
   ) : (
-    <View style={styles.container}>
+    <View style={styles.view}>
       <Text>No data</Text>
     </View>
   );

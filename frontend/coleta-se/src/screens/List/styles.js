@@ -24,5 +24,11 @@ export const styles = StyleSheet.create({
 
     card: {
       borderRadius: 15,
+    },
+
+    view: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 200
     }
 });
