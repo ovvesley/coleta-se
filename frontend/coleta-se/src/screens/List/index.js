@@ -1,15 +1,23 @@
 import React from "react";
 import { View, Text, FlatList } from "react-native";
+import { Card } from "react-native-elements";
 import { styles } from "./styles";
 
 export default function List({ spots }) {
+
   return spots && spots.length > 0 ? (
-    <View style={styles.container}>
-      <FlatList
-        style={styles.lista}
-        contentContainerStyle={styles.container}
+    <View>
+      <FlatList 
         data={spots}
-        renderItem={({ item }) => <Text style={styles.item}>{item.login}</Text>}
+        renderItem={({ item }) => (
+          <Card 
+            style={styles.card} 
+            title={item.titulo}>
+            <Text>
+              {item.descricao}
+            </Text>
+          </Card>
+        )}
       />
     </View>
   ) : (

@@ -21,5 +21,8 @@ export const styles = StyleSheet.create({
       marginTop: 0,
       padding: 0,
     },
-  
+
+    card: {
+      borderRadius: 15,
+    }
 });
