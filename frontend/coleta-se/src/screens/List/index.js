@@ -5,23 +5,23 @@ import { styles } from "./styles";
 
 export default function List({ spots }) {
 
+  console.log(spots);
+
   return spots && spots.length > 0 ? (
-    <View>
+    <View style={styles.viewWithData}>
       <FlatList 
         data={spots}
         renderItem={({ item }) => (
-          <Card 
-            style={styles.card} 
-            title={item.titulo}>
+          <Card title={item.title}>
             <Text>
-              {item.descricao}
+              {item.description}
             </Text>
           </Card>
         )}
       />
     </View>
   ) : (
-    <View style={styles.view}>
+    <View style={styles.viewWithNoData}>
       <Text>No data</Text>
     </View>
   );

@@ -26,9 +26,13 @@ export const styles = StyleSheet.create({
       borderRadius: 15,
     },
 
-    view: {
+    viewWithNoData: {
       justifyContent: 'center',
       alignItems: 'center',
       marginTop: 200
+    },
+
+    viewWithData: {
+      marginTop: 20
     }
 });
