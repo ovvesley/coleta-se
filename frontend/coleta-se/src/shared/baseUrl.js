@@ -1,1 +1,1 @@
-export default url = `https://api.github.com/users`;
+export default url = `http://coletase.ueuo.com/`;

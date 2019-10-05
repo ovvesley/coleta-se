@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { BottomNavigation, Text } from "react-native-paper";
+import { View } from "react-native";
+
 import url from "./shared/baseUrl";
 import Info from "./screens/Info";
 import List from "./screens/List";
@@ -24,6 +26,11 @@ export default class Main extends Component {
       for (let i = 0; i < data.length; i++) {
         data[i]["key"] = i + "a";
       }
+      data = data.map(val => {
+        val.coordinate.latitude = parseFloat(val.coordinate.latitude);
+        val.coordinate.longitude = parseFloat(val.coordinate.longitude);
+        return val;
+      });
       this.setState({ spots: data });
     });
   }
@@ -51,14 +58,18 @@ export default class Main extends Component {
   }
 
   render() {
-    return (
+    return this.state.spots[0] ? (
       <BottomNavigation
         navigationState={this.state}
         onIndexChange={this._handleIndexChange}
         renderScene={this._renderScene}
-        barStyle={{backgroundColor: "#f2f2f2"}}
+        barStyle={{ backgroundColor: "#f2f2f2" }}
         activeColor="#8c655d"
       />
+    ) : (
+      <View style={{ flex: 1 }}>
+        <Text style={{ fontSize: 20 }}>Loading</Text>
+      </View>
     );
   }
 }
