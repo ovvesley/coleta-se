@@ -7,7 +7,7 @@ Este repositório estará sob supervisão minha (Enzo Zamora [enzo-z]), um péss
 
 
 
-## Momento de Prototipação (Estágio atual)
+## Momento de Prototipação (Ideia inicial)
 
 Bom, a ideia aqui será fazer a conexão com o BD, e cuspir os dados do BD num JSON para ser tratado no frontend. Nisso, a API do Maps vai utilizar os dados para mostrar os pontos de coleta no mapa.
 O JSON deverá emitir um array de objetos, no formato
@@ -38,7 +38,12 @@ LET'S get this going! Boa sorte, Enzo do brevíssimo futuro.
 
 ### Script.sql
 
-Neste arquivo, há tudo que vocês precisam para criar o BD pelo terminal. Deixei alguma inserções preparadas para vocês testarem os dados no frontend.
+Neste arquivo há toda a arquitetura do banco de dados em sql, bem como alguns exemplos de inserções manuais para se testar. 
 
-### src
-Há dois arquivos nesse. Um é o que o Dias estava testando *main.php* e o outro é o que eu fiz *index.php* com o método procedural que gera o JSON no navegador. Eu irei refazer usando PDO logo logo, mas acho que aí já tem o que vocês precisam. 
+### src/insert.php 
+
+Possui a função de ler os dados provenientes de um CSV (qqq.csv) e faz as querys de inserção. 
+
+### src/index.php
+
+Emite o JSON com um array de objetos contendo os dados necessários do aplicativo, para ser pego pelo frontend.
