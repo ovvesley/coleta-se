@@ -8,7 +8,7 @@ O 'coleta-se' essencialmente é uma plataforma de busca para pontos de coleta se
 
 ## Tecnologias Utilizadas no protótipo
 
-Nosso grupo optou por codar um aplicativo utilizando de uma tecnologia atual (React Native) para o frontend, permitindo o acesso multiplataforma do aplicativo. Testamos o produto em ambos Android e iOS! O backend foi feito de uma maneira mais tradicional, em PHP e um banco de dados em MySQL.
+Nosso grupo optou por codar um aplicativo utilizando de uma tecnologia atual (**React Native**) para o frontend, permitindo o acesso multiplataforma do aplicativo. Testamos o produto em ambos Android e iOS! O backend foi feito de uma maneira mais tradicional, em PHP e um banco de dados em MySQL.
 Atualmente, o protótipo conta com três telas:
 
 1. O Mapa : Onde mostra os locais de coleta seletiva
@@ -33,7 +33,7 @@ Após isso, basta utilizar
 
 	sudo yarn start
 
-e isto disponibilizará a porta 19002 do seu localhost para acesso, bem como um **QR code** no terminal.
+e isto disponibilizará a porta 19002 do seu localhost para acesso, bem como um *QR code* no terminal.
 
 ### Testando no seu aparelho
 
@@ -41,7 +41,7 @@ Para testar o aplicativo no seu aparelho, lembre-se de estar conectado ao mesmo 
 
 #### **Android**
 
-Basta baixar o aplicativo do '**expo**' na PlayStore e scanear o QR code disponibilizado pelo seu terminal (ou mesmo o disponibilizado no localhost:19002 no seu navegador) e testar!
+Basta baixar o aplicativo do '**expo**' na PlayStore e scanear o *QR code* disponibilizado pelo seu terminal (ou mesmo o disponibilizado no localhost:19002 no seu navegador) e testar!
 
 #### **iOS**
 

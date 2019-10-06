@@ -51,7 +51,7 @@ Neste arquivo há toda a arquitetura do banco de dados em sql, bem como alguns e
 
 ### src/insert.php
 
-Possui a função de ler os dados provenientes de um CSV (qqq.csv) e faz as querys de inserção.
+Possui a função de ler os dados provenientes de um CSV (*qqq.csv*) e faz as querys de inserção.
 
 ### src/index.php
 
