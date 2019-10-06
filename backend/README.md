@@ -1,28 +1,40 @@
 # Backend PHP [Com adição do MySQL]
-    Neste repositório irá ser tratado a conexão do coleta-se com o Banco de Dados em Mysql.
-    Estarei utilizando PHP PDO, para facilitar futuras mudanças do BD, bem como uma proteção maior e um suporte maior a POO. 
 
-
-Este repositório estará sob supervisão minha (Enzo Zamora [enzo-z]), um péssimo programador overall.
-
-
+Neste repositório irá ser tratado a conexão do coleta-se com o Banco de Dados em Mysql.
+Este repositório estará sob supervisão minha (Enzo Zamora [[enzo-z](https://github.com/enzo-z)]), um eterno aprendiz da programação.
 
 ## Momento de Prototipação (Ideia inicial)
 
 Bom, a ideia aqui será fazer a conexão com o BD, e cuspir os dados do BD num JSON para ser tratado no frontend. Nisso, a API do Maps vai utilizar os dados para mostrar os pontos de coleta no mapa.
 O JSON deverá emitir um array de objetos, no formato
-    
-        objASerRetornado = [ 
-        {"lat":1234, "long": "4123", "descricao": "aaaaa", "titulo":"bbbbb", "id": 01}, 
 
-        {"lat":1234, "long": "4123", "descricao": "aaaaa", "titulo":"bbbbb", "id": 02},  
-
-        {"lat":1234, "long": "4123", "descricao": "aaaaa", "titulo":"bbbbb", "id": 03},  
-
-        {"lat":1234, "long": "4123", "descricao": "aaaaa", "titulo":"bbbbb", "id": 04},  
-
-        {"lat":1234, "long": "4123", "descricao": "aaaaa", "titulo":"bbbbb", "id": 05}
-        ]
+    objASerRetornado = [ 
+        
+        {
+          coordinate: { latitude: -22.905, longitude: -43.2096 },
+          description: "Lixeira de Teste",
+          title: "Lixeira boladona",
+          id: 1
+        },
+        {
+          coordinate: { latitude: -22.800, longitude: -43.2096 },
+          description: "Lixeira de Teste",
+          title: "Lixeira boladona",
+          id: 2
+        },
+        {
+          coordinate: { latitude: -22.600, longitude: -43.2096 },
+          description: "Lixeira de Teste",
+          title: "Lixeira boladona",
+          id: 3
+        },
+        {
+          coordinate: { latitude: -22.700, longitude: -43.2096 },
+          description: "Lixeira de Teste",
+          title: "Lixeira boladona",
+          id: 4
+        }
+    ]
 
 Logo, a tabela precisará de
     id : Chave primária (auto increment)
@@ -31,18 +43,15 @@ Logo, a tabela precisará de
     descricao : descricao sobre o que é aquele ponto de coleta, os lixos que ele armazena e zás
     titulo: nome do ponto
 
-
-LET'S get this going! Boa sorte, Enzo do brevíssimo futuro. 
-
-## Sobre os arquivos:
+## Sobre os arquivos
 
 ### Script.sql
 
-Neste arquivo há toda a arquitetura do banco de dados em sql, bem como alguns exemplos de inserções manuais para se testar. 
+Neste arquivo há toda a arquitetura do banco de dados em sql, bem como alguns exemplos de inserções manuais para se testar.
 
-### src/insert.php 
+### src/insert.php
 
-Possui a função de ler os dados provenientes de um CSV (qqq.csv) e faz as querys de inserção. 
+Possui a função de ler os dados provenientes de um CSV (qqq.csv) e faz as querys de inserção.
 
 ### src/index.php
 
