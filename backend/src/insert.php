@@ -1,9 +1,10 @@
 <?php
+    insereDados();
     function insereDados(){
         $host = 'localhost';
-        $user = 'root'; //Insira usuario
-        $pass = ''; //Insira senha
-        $name = '';//Insira nome bd
+        $user = 'enzo-z'; //Insira usuario
+        $pass = 'computacao10Z-'; //Insira senha
+        $name = 'coletase';//Insira nome bd
         $connect = mysqli_connect($host, $user, $pass, $name);
         if(!$connect){
             die('Erro de conexão: ' . mysqli_connect_error());
@@ -15,7 +16,7 @@
             $arq = fgetcsv($f);
             while ($arq){
  //                                                                                                                        id, tituloSTRING, lat, long, desSTRING
-                mysqli_query($connect, "INSERT INTO local (id_local, titulo, latitude, longitude, descricao) VALUES (" . "$arq[0]," . "'$arq[1]',". "$arq[2],". "$arq[3],"."'$arq[3]');");
+                mysqli_query($connect, "INSERT INTO local (id_local, titulo, latitude, longitude, descricao) VALUES (" . "$arq[0]," . "'$arq[1]',". "$arq[2],". "$arq[3],"."'$arq[4]');");
                 if(mysqli_affected_rows($connect) != 1){
                     die ('something went wrong on the insertion of:'.$arq[1]);
                 }
