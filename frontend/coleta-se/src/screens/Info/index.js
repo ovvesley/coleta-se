@@ -5,7 +5,6 @@ import { Card } from "react-native-elements";
 import { styles } from "./styles";
 
 
-
 export default function Info() {
   return (
     <ScrollView style={styles.container}>
@@ -21,6 +20,34 @@ export default function Info() {
           vazamentos.
         </Text>
       </Card>
+
+      <Card title="Como posso descartar isso?">
+        <Image
+          source={require("../../../assets/lamp2.png")}
+          style={{ width: 60, height:60 }}
+        />
+        <Text style={styles.textBody}>
+          Quando as lâmpadas da sua casa queimarem, 
+          não as jogue no lixo reciclável, menos ainda no lixo comum. 
+          Embale-as em papel ou caixa de papelão, evite os sacos plásticos, 
+          pois elas correm o risco de quebrar no caminho.
+          Se estiver apenas queimada, 
+          é possível encaminhá-la aos centros que comercializam a lâmpada, 
+          a fim de que façam o tratamento adequado. Agora, se estiver quebrada, 
+          coloque-a em uma caixa de papelão ou enrolada em um papel, 
+          e a leve para uma loja ou revendedora que faça o recolhimento do material.
+        </Text>
+      </Card>
+
+      <Card title="Como posso descartar isso?">
+        <Image
+          source={require("../../../assets/oil.png")}
+          style={{ width: 50, height: 50 }}
+        />
+        <Text style={styles.textBody}>
+        </Text>
+      </Card>
+
       <Card containerStyle={{ borderRadius: 20 }} title={"Informações"}>
         <Text style={styles.textTitle}></Text>
         <Text style={styles.subTitle}>Saiba mais sobre o coleta-se</Text>
