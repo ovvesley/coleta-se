@@ -16,6 +16,15 @@ CREATE TABLE local(
     PRIMARY KEY (id_local)
 );
 
+CREATE TABLE userINSERTS(
+    id_local INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    titulo VARCHAR(50) NOT NULL,
+    latitude DOUBLE NOT NULL,
+    longitude DOUBLE NOT NULL,
+    descricao VARCHAR(200) NOT NULL, 
+    PRIMARY KEY (id_local)
+);
+
 --Inserções dos dados que o Maia passou [DO JEITO MACACO]
 /*
 
