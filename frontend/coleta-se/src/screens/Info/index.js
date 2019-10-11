@@ -36,15 +36,33 @@ export default function Info() {
           a fim de que façam o tratamento adequado. Agora, se estiver quebrada, 
           coloque-a em uma caixa de papelão ou enrolada em um papel, 
           e a leve para uma loja ou revendedora que faça o recolhimento do material.
+          Veja o mapa ou a lista para achar este serviço.
         </Text>
       </Card>
 
       <Card title="Como posso descartar isso?">
         <Image
           source={require("../../../assets/oil.png")}
+          style={{ width: 25, height: 40 }}
+        />
+        <Text style={styles.textBody}>
+          Para descartar o oléo de fritura velho,
+          armazene-o em uma garrafa PET. Conforme for usando óleo,
+          vá armazenando na garrafa. Após encher a(s) garrafa(s),
+          procure empresas e/ou ONGs especializadas neste tipo de descarte.
+          Veja o mapa ou a lista para achar este serviço.
+        </Text>
+      </Card>
+
+      <Card title="Como posso descartar isso?">
+        <Image
+          source={require("../../../assets/cellphone.png")}
           style={{ width: 50, height: 50 }}
         />
         <Text style={styles.textBody}>
+          O lixo eletrônico deve ser separado dos resíduos orgânicos.
+          O descarte deve ser feito em locais apropriados, como: empresas,
+          cooperativas de reciclagem, centros de estudos.
         </Text>
       </Card>
 
