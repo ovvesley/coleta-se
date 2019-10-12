@@ -23,7 +23,7 @@ export default function Info() {
 
       <Card title="Como posso descartar isso?">
         <Image
-          source={require("../../../assets/lamp2.png")}
+          source={require("../../../assets/lamp.png")}
           style={{ width: 60, height:60 }}
         />
         <Text style={styles.textBody}>
@@ -63,6 +63,16 @@ export default function Info() {
           O lixo eletrônico deve ser separado dos resíduos orgânicos.
           O descarte deve ser feito em locais apropriados, como: empresas,
           cooperativas de reciclagem, centros de estudos.
+        </Text>
+      </Card>
+
+      <Card title="Como posso descartar isso?">
+        <Image
+          source={require("../../../assets/plastic.png")}
+          style={{ width: 50, height: 60 }}
+        />
+        <Text style={styles.textBody}>
+          
         </Text>
       </Card>
 
