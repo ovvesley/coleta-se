@@ -5,5 +5,7 @@
     $name = 'coletase';//Insira nome bd
     $connect = mysqli_connect($host, $user, $pass, $name);
     if(!$connect){
-        die('Erro de conexão: ' . mysqli_connect_error());
+        require("geraERROS.php");
+        cospeERROSemJSON(1000);
+        die(); 
     }

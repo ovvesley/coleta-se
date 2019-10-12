@@ -1,7 +1,6 @@
 <?php
-        function checkData($inputeData) : bool{
+        function checkData($inputeData){
             $dataMissing = array();
-            echo "checkData<br>";
             foreach ($inputeData as $key => $value) {
                 trim($value);
                 if(empty($value)){
@@ -9,13 +8,14 @@
                 }
             }
             
-            if(!empty($dataMissing)){ //Depois, modificar isso com uma regular expression, no futuro [VER AMANHÃ]
+            if(!empty($dataMissing)){
                 include("index2.php");
-                echo 'You need to enter the following data: <br/>';
+                echo 'Você deixou de entrar com os seguintes dados: <br/>';
                 foreach($dataMissing as $missing){
                      echo "$missing<br/>";
                 }
-                return true;
+                $error = 1001;
+                return $error;   //Se tiver dados faltando, retornará TRUE
             }
             else{
                 return false;

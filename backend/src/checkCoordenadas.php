@@ -1,13 +1,13 @@
 <?php
-function checkCoordAlreadyExist($inputeData) : bool{
+function checkCoordAlreadyExist($inputeData){
     require_once("connect.php");
-    $sql = "SELECT latitude, longitude FROM local";
+    $sql = "SELECT latitude, longitude FROM userinserts";
     $response = mysqli_query($connect, $sql);
     $exist = false;
     if($response){
         while($row = mysqli_fetch_array($response)){
             if (($row['latitude'] == $inputeData['latitude']) && ($row['longitude'] == $inputeData['longitude'])){
-                $exist = true;
+                $exist = 1002;
             }
             else{
                 $exist = false;
@@ -15,16 +15,10 @@ function checkCoordAlreadyExist($inputeData) : bool{
         }
     }
     else{
-        echo "Ocorreu um erro na hora de saber se o local já está registrado! <br />";
-        echo mysqli_error($connect);
-    }
-    mysqli_close($connect);
-
-
-    if ($exist){
-        include_once("index2.php");
-        echo '<h1>SEU LOCAL JÁ EXISTE!</h1>';
+        require("geraERROS.php");
+        cospeERROSemJSON(1002.5);
+        mysqli_close($connect);
+        die();
     }
     return $exist;
-    exit();
 }
