@@ -14,7 +14,7 @@ export default class FloatButtonGroup extends Component {
         <Portal>
           <FAB.Group
             open={this.state.open}
-            icon={this.state.open ? "today" : "add"}
+            icon={this.state.open ? "add" : "add"}
             actions={[
               {
                 icon: "add",

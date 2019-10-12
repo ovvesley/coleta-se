@@ -5,6 +5,7 @@ import MapView, { Marker } from "react-native-maps";
 import styles from "./styles";
 import FloatButtonGroup from "../../Components/GenericComponent/FloatButtonGroup";
 import ModalForm from "../../Components/GenericComponent/ModalFormNovosLocais";
+import { Input, Button } from "react-native-elements";
 
 export default class Mapa extends Component {
   constructor(props) {
@@ -21,7 +22,11 @@ export default class Mapa extends Component {
         visible: false
       },
       enableNovoLocal: false,
-      novoLocal: {region: {}, title: "", description: ""}
+      novoLocal: {
+        region: {},
+        title: "Clique para inserir um novo local.",
+        description: ""
+      }
     };
 
     this.enableNovoLocal = this.enableNovoLocal.bind(this);
@@ -50,15 +55,18 @@ export default class Mapa extends Component {
   _showModal = () => this.setState({ modal: { visible: true } });
   _hideModal = () => this.setState({ modal: { visible: false } });
 
-  enableNovoLocal(){
-    this.setState((state)=> ({
+  enableNovoLocal() {
+    this.setState(state => ({
       enableNovoLocal: !state.enableNovoLocal
-    }))
+    }));
   }
 
-  addNewLocal(e){
-    console.log(e);
+  addNewLocal(e) {
+    const { coordinate } = e.nativeEvent;
+    this.setState({ novoLocal: { region: coordinate } });
+    console.log(this.state.novoLocal);
   }
+
   render() {
     const FloatButton = () => (
       <FAB
@@ -68,12 +76,16 @@ export default class Mapa extends Component {
       />
     );
     return (
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
+        {this.state.enableNovoLocal && <Text>Modo adicionar local</Text>}
+
         <MapView
-          style={{width:'100%', height:'100%'}}
+          style={{ width: "100%", height: "100%" }}
           region={this.state.region}
           showsUserLocation
-          onPress={!this.state.enableNovoLocal ? null : (e) => this.addNewLocal(e)}
+          onPress={
+            !this.state.enableNovoLocal ? null : e => this.addNewLocal(e)
+          }
         >
           {this.state.markers.map(marker => (
             <Marker
@@ -88,8 +100,18 @@ export default class Mapa extends Component {
               />
             </Marker>
           ))}
-        </MapView >
 
+          {this.state.enableNovoLocal &&
+          this.state.novoLocal.region.hasOwnProperty("latitude") ? (
+            <Marker
+              coordinate={this.state.novoLocal.region}
+              title={"Insira"}
+              description={"..."}
+            />
+          ) : (
+            <View></View>
+          )}
+        </MapView>
         <FloatButtonGroup enableNovoLocal={this.enableNovoLocal} />
       </View>
     );
