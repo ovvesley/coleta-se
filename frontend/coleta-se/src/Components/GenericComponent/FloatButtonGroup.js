@@ -24,7 +24,7 @@ export default class FloatButtonGroup extends Component {
               {
                 icon: "star",
                 label: "Tenho uma sugestão",
-                onPress: () => console.log("Pressed star")
+                onPress: () => {}
               }
             ]}
             onStateChange={({ open }) => this.setState({ open })}

@@ -4,7 +4,7 @@ import { FAB, Portal, Provider } from "react-native-paper";
 import MapView, { Marker } from "react-native-maps";
 import styles from "./styles";
 import FloatButtonGroup from "../../Components/GenericComponent/FloatButtonGroup";
-import ModalForm from "../../Components/GenericComponent/ModalFormNovosLocais";
+import ModalSugestoes from "../../Components/GenericComponent/ModalSugestoes";
 import { Input, Button } from "react-native-elements";
 
 export default class Mapa extends Component {
@@ -77,7 +77,11 @@ export default class Mapa extends Component {
     );
     return (
       <View style={{ flex: 1 }}>
-        {this.state.enableNovoLocal && <Text>Modo adicionar local</Text>}
+        {this.state.enableNovoLocal && (
+          <Text style={{ textAlign: "center", backgroundColor: "green", marginTop:4 }}>
+            Modo adicionar local
+          </Text>
+        )}
 
         <MapView
           style={{ width: "100%", height: "100%" }}
@@ -112,7 +116,7 @@ export default class Mapa extends Component {
             <View></View>
           )}
         </MapView>
-        <FloatButtonGroup enableNovoLocal={this.enableNovoLocal} />
+        <FloatButtonGroup enableNovoLocal={this.enableNovoLocal} visible={this.state.modal.visible} showModal={this._showModal} />
       </View>
     );
   }

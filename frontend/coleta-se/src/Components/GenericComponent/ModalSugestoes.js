@@ -3,7 +3,7 @@ import { Modal, Portal, Button, Provider } from "react-native-paper";
 import { Input, Icon,  Card  } from "react-native-elements";
 import {Text} from "react-native";
 
-export default class ModalForm extends Component {
+export default class ModalSugestoes extends Component {
   render() {
     return (
       <Provider>
@@ -11,8 +11,12 @@ export default class ModalForm extends Component {
           <Modal visible={this.props.visible} onDismiss={this.props.hideModal}>
             <Card title={"Novo Local"}>
               <Text>
-                Novo Local: novo local é uma forma de você ajudar a gente com
-                locais que você conhece. Sua ajuda é sempre bem vinda. :)
+               EXEMPLEE EXEMPLEEE
+               EXEMPLEE EXEMPLEEE
+               EXEMPLEE EXEMPLEEE
+               EXEMPLEE EXEMPLEEE
+               EXEMPLEE EXEMPLEEE
+               EXEMPLEE EXEMPLEEE
               </Text>
 
               <Input placeholder="Cidade" />
