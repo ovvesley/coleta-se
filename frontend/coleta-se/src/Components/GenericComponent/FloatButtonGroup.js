@@ -19,7 +19,7 @@ export default class FloatButtonGroup extends Component {
               {
                 icon: "add",
                 label: "Adicione novos locais",
-                onPress: () => this.props.showModal()
+                onPress: () => this.props.enableNovoLocal()
               },
               {
                 icon: "star",

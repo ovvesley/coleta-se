@@ -4,7 +4,7 @@ import { FAB, Portal, Provider } from "react-native-paper";
 import MapView, { Marker } from "react-native-maps";
 import styles from "./styles";
 import FloatButtonGroup from "../../Components/GenericComponent/FloatButtonGroup";
-import ModalForm from "../../Components/GenericComponent/ModalForm";
+import ModalForm from "../../Components/GenericComponent/ModalFormNovosLocais";
 
 export default class Mapa extends Component {
   constructor(props) {
@@ -19,8 +19,12 @@ export default class Mapa extends Component {
       markers: [],
       modal: {
         visible: false
-      }
+      },
+      enableNovoLocal: false,
+      novoLocal: {region: {}, title: "", description: ""}
     };
+
+    this.enableNovoLocal = this.enableNovoLocal.bind(this);
   }
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
@@ -46,6 +50,15 @@ export default class Mapa extends Component {
   _showModal = () => this.setState({ modal: { visible: true } });
   _hideModal = () => this.setState({ modal: { visible: false } });
 
+  enableNovoLocal(){
+    this.setState((state)=> ({
+      enableNovoLocal: !state.enableNovoLocal
+    }))
+  }
+
+  addNewLocal(e){
+    console.log(e);
+  }
   render() {
     const FloatButton = () => (
       <FAB
@@ -60,6 +73,7 @@ export default class Mapa extends Component {
           style={{width:'100%', height:'100%'}}
           region={this.state.region}
           showsUserLocation
+          onPress={!this.state.enableNovoLocal ? null : (e) => this.addNewLocal(e)}
         >
           {this.state.markers.map(marker => (
             <Marker
@@ -76,8 +90,7 @@ export default class Mapa extends Component {
           ))}
         </MapView >
 
-        <FloatButtonGroup showModal={this._showModal} />
-        <ModalForm visible={this.state.modal.visible} hideModal={this._hideModal}/>
+        <FloatButtonGroup enableNovoLocal={this.enableNovoLocal} />
       </View>
     );
   }
