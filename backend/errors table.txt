@@ -1,0 +1,11 @@
+ERROR NUMBERS: 
+
+1000 - ERRO DE CONEXÃO
+
+1001 - Preencha todos os campos antes de enviar seu local!
+
+1002 - Este local já está adicionado em nosso Banco de Dados!
+
+1002.5 - Erro ao checar as coordenadas!
+
+1003 - Oops! Algo deu errado! Tente novamente!
