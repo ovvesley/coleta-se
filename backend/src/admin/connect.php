@@ -1,8 +1,8 @@
 <?php
     $host = 'localhost';
-    $user = 'enzo-z'; //Insira usuario
-    $pass = 'computacao10Z-'; //Insira senha
-    $name = 'coletase';//Insira nome bd
+    $user = '44252'; //Insira usuario
+    $pass = 'arcadeatenas2017'; //Insira senha
+    $name = '44252';//Insira nome bd
     $connect = mysqli_connect($host, $user, $pass, $name);
     if(!$connect){
         die("Erro de conexão: ". mysqli_error($connect));
