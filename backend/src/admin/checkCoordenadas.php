@@ -5,24 +5,7 @@ function checkCoordAlreadyExist($inputeData){
     $response = mysqli_query($connect, $sql);
     $exist = true;
     if($response){
-        echo '<table>';
-        echo '<tr>';
-        echo '<th>Latitude do MYSQL</th>';
-        echo '<th>Longitude do MYSQL</th>';
-        echo '<th>Latitude INPUT</th>';
-        echo '<th>Longitude INPUT</th>';
-        echo '<th>CONDICIONAL</th>';
-        echo '</tr>';
-        echo '<tr>';
         while($row = mysqli_fetch_array($response)){
-            echo '<tr>';
-            echo "<td>".$row['latitude']."</td>";
-            echo "<td>".$row['longitude']."</td>";
-            echo "<td>".$inputeData['latitude']."</td>";
-            echo "<td>".$inputeData['longitude']."</td>";
-            echo '<td>'.(($row['latitude'] == $inputeData['latitude']) && ($row['longitude'] == $inputeData['longitude'])).'</td>';
-            echo '</tr>';
-            
             if (($row['latitude'] === $inputeData['latitude']) && ($row['longitude'] === $inputeData['longitude'])){
                 $exist = 1002;
             }
@@ -30,8 +13,6 @@ function checkCoordAlreadyExist($inputeData){
                     $exist = false;
             }
         }
-        echo '</tr>';
-        echo "</table>";
     }
     else{
         echo "Ocorreu um erro na hora de saber se o local já está registrado! <br />";
