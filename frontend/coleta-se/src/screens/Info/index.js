@@ -72,7 +72,16 @@ export default function Info() {
           style={{ width: 50, height: 60 }}
         />
         <Text style={styles.textBody}>
-          
+
+        </Text>
+      </Card>
+
+      <Card title="Como posso descartar isso?">
+        <Image
+          source={require("../../../assets/iron.png")}
+          style={{ width: 30, height: 30 }}
+        />
+        <Text style={styles.textBody}>
         </Text>
       </Card>
 
