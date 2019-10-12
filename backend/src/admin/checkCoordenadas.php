@@ -1,18 +1,37 @@
 <?php
 function checkCoordAlreadyExist($inputeData){
-    require_once("connect.php");
+    require("connect.php");
     $sql = "SELECT latitude, longitude FROM local";
     $response = mysqli_query($connect, $sql);
-    $exist = false;
+    $exist = true;
     if($response){
+        echo '<table>';
+        echo '<tr>';
+        echo '<th>Latitude do MYSQL</th>';
+        echo '<th>Longitude do MYSQL</th>';
+        echo '<th>Latitude INPUT</th>';
+        echo '<th>Longitude INPUT</th>';
+        echo '<th>CONDICIONAL</th>';
+        echo '</tr>';
+        echo '<tr>';
         while($row = mysqli_fetch_array($response)){
-            if (($row['latitude'] == $inputeData['latitude']) && ($row['longitude'] == $inputeData['longitude'])){
+            echo '<tr>';
+            echo "<td>".$row['latitude']."</td>";
+            echo "<td>".$row['longitude']."</td>";
+            echo "<td>".$inputeData['latitude']."</td>";
+            echo "<td>".$inputeData['longitude']."</td>";
+            echo '<td>'.(($row['latitude'] == $inputeData['latitude']) && ($row['longitude'] == $inputeData['longitude'])).'</td>';
+            echo '</tr>';
+            
+            if (($row['latitude'] === $inputeData['latitude']) && ($row['longitude'] === $inputeData['longitude'])){
                 $exist = 1002;
             }
-            else{
-                $exist = false;
+            elseif($exist != 1002){
+                    $exist = false;
             }
         }
+        echo '</tr>';
+        echo "</table>";
     }
     else{
         echo "Ocorreu um erro na hora de saber se o local já está registrado! <br />";
