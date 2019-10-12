@@ -48,4 +48,4 @@ Basta baixar o aplicativo do '**expo**' na PlayStore e scanear o *QR code* dispo
 
 Para testar nosso protótipo, basta baixar o aplicativo do '**expo**' na App Store e logo após isso abrir sua câmera! Com ela, scaneie o **QR code** disponibilizado pelo terminal (ou o mesmo disponibilizado no localhost:19002 em seu navegador). Seu telefone automaticamente irá pedir para abrir o aplicativo do '**expo**'. Agora basta testar!
 
-##### Para mais informações sobre a utilização, entre em contato: ezamoradev@gmail.com
+##### Para mais informações sobre a utilização, entre em contato: ezamoradev@gmail.com | wsf.ley@gmail.com | gabriel.amaral@aluno.cefet-rj.br 
