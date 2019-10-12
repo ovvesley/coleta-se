@@ -16,16 +16,16 @@ CREATE TABLE local(
     PRIMARY KEY (id_local)
 );
 
-CREATE TABLE userINSERTS(
-    id_local INT UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE userinserts(
+    id_inserted INT UNSIGNED NOT NULL AUTO_INCREMENT,
     titulo VARCHAR(50) NOT NULL,
     latitude DOUBLE NOT NULL,
     longitude DOUBLE NOT NULL,
     descricao VARCHAR(200) NOT NULL, 
-    PRIMARY KEY (id_local)
+    PRIMARY KEY (id_inserted)
 );
 
---Inserções dos dados que o Maia passou [DO JEITO MACACO]
+--Inserções dos dados que o Maia passou [MANUAL INSERTIONS]
 /*
 
 INSERT INTO local VALUES(NULL,"[Ecoponto] Light Recicla - Botafogo",-22.955657,-43.179367,"8:00 às 16:30h (2ª 4ª 6ª feira). 09:00 às 17:30h (3ª e 5ª feira). Sábados de 9:00 às 12:30");
@@ -43,7 +43,7 @@ INSERT INTO local VALUES(NULL,"[Ecoponto] Light Recicla - Copacabana",-22.962910
 INSERT INTO local VALUES(NULL,"[Ecoponto] Light Recicla - São Cristóvao/Zoológico",-22.904294,-43.229881,"Aberto aos finais de semana e feriados das 10h às 17h (fechamento da bilheteria às 16h)");
 
 */
---Inserções dos dados que o Amaral passou[DO JEITO MACACO]
+--Inserções dos dados que o Amaral passou[MANUAL INSERTIONS]
 
 /*
 
@@ -59,7 +59,7 @@ INSERT INTO local VALUES(NULL,"Centro de Reciclagem",-22.857601,-43.249815,"A.C.
 
 */
 
---Inserções dos dados que o Maia verificou do Amaral [JEITO MACACO]
+--Inserções dos dados que o Maia verificou do Amaral [MANUAL INSERTIONS]
 
 /*
 
