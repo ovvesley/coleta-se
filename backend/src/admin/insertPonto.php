@@ -1,7 +1,7 @@
 <?php
     function insertPontoInDB($inputeData){
         require("connect.php");
-        $sql = "INSERT INTO local (id_inserted, titulo, latitude, longitude, descricao) VALUES (NULL, ?, ?, ?, ?)";
+        $sql = "INSERT INTO local (id_local, titulo, latitude, longitude, descricao) VALUES (NULL, ?, ?, ?, ?)";
         //S, D, D, S
         if ($stmt = mysqli_prepare($connect, $sql)){
             // Bind param
