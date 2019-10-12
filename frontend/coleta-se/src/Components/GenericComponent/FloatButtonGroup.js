@@ -1,0 +1,41 @@
+import React, { Component } from "react";
+import { FAB, Portal, Provider } from "react-native-paper";
+
+export default class FloatButtonGroup extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false
+    };
+  }
+  render() {
+    return (
+      <Provider>
+        <Portal>
+          <FAB.Group
+            open={this.state.open}
+            icon={this.state.open ? "today" : "add"}
+            actions={[
+              {
+                icon: "add",
+                label: "Adicione novos locais",
+                onPress: () => this.props.showModal()
+              },
+              {
+                icon: "star",
+                label: "Tenho uma sugestão",
+                onPress: () => console.log("Pressed star")
+              }
+            ]}
+            onStateChange={({ open }) => this.setState({ open })}
+            onPress={() => {
+              if (this.state.open) {
+                console.log("FloatButton!")
+              }
+            }}
+          />
+        </Portal>
+      </Provider>
+    );
+  }
+}
