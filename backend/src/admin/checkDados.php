@@ -7,7 +7,6 @@
                     $dataMissing[$key] = "$key";
                 }
             }
-            
             if(!empty($dataMissing)){
                 include("index2.php");
                 echo 'Você deixou de entrar com os seguintes dados: <br/>';
@@ -15,7 +14,7 @@
                      echo "$missing<br/>";
                 }
                 $error = 1001;
-                return $error;   //Se tiver dados faltando, retornará TRUE
+                return $error;
             }
             else{
                 return false;

@@ -1,10 +1,11 @@
 # Projeto 'coleta-se' [Protótipo]
 
-O projeto coleta-se trata-se de um projeto organizado pelos alunos de ensino médio do CEFET-RJ *[Maracaña]*, dos cursos técnico-integrado de Informática e Eletrônica. Seus membros são Enzo Zamora ([enzo-z](https://github.com/enzo-z)), Lucas Maia ([Robootic](https://github.com/Robootic)), Gabriel Dias ([Leorna](https://github.com/Leorna)), Gabriel Amaral ([amaral220x](https://github.com/amaral220x)) e Wesley Ferreira ([vvesly](https://github.com/vvesly/)) e o orientador é o professor Renato Mauro.
+O projeto coleta-se trata-se de um projeto organizado pelos alunos de ensino médio do CEFET-RJ *[Maracaña]*, dos cursos técnico-integrado de Informática e Eletrônica. Seus membros são Enzo Zamora ([enzo-z](https://github.com/enzo-z)),  Gabriel Amaral ([amaral220x](https://github.com/amaral220x)), Gabriel Dias ([Leorna](https://github.com/Leorna)),
+Lucas Maia ([Robootic](https://github.com/Robootic)) e Wesley Ferreira ([vvesly](https://github.com/vvesly/)). Nosso orientador é o professor Renato Mauro!
 
 Tudo foi pensado e realizado em prol do curso Startup in School - um curso disponibilizado pela Google em parceria com a Ideias de Futuro - que visa o aprendizado do empreendimento tecnológico inovador para alunos de ensino médio.
 
-O 'coleta-se' essencialmente é uma plataforma de busca para pontos de coleta seletiva. Em implementações futuras, planejamos permitir com que o usuário possa sinalizar que na área dele não há pontos de coleta (dado um raio de x km), e com a ocorrência de muitas sinalizações em determinada área, obtermos um levantamento dos locais necessitados!
+O 'coleta-se' essencialmente é uma plataforma de busca para pontos de coleta seletiva. Em implementações futuras, planejamos permitir com que o usuário possa entrar com pontos de seu conhecimento, e também possa sinalizar que na área dele não há pontos de coleta (dado um raio de x km), e com a ocorrência de muitas sinalizações em determinada área, obtermos um levantamento dos locais necessitados!
 
 ## Tecnologias Utilizadas no protótipo
 
@@ -47,4 +48,4 @@ Basta baixar o aplicativo do '**expo**' na PlayStore e scanear o *QR code* dispo
 
 Para testar nosso protótipo, basta baixar o aplicativo do '**expo**' na App Store e logo após isso abrir sua câmera! Com ela, scaneie o **QR code** disponibilizado pelo terminal (ou o mesmo disponibilizado no localhost:19002 em seu navegador). Seu telefone automaticamente irá pedir para abrir o aplicativo do '**expo**'. Agora basta testar!
 
-##### Para mais informações sobre a utilização, entre em contato
+##### Para mais informações sobre a utilização, entre em contato: ezamoradev@gmail.com

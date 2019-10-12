@@ -22,14 +22,14 @@
             header("Content-type: application/json; charset='utf-8'");
             echo json_encode($data);
         }
-        /*else{
+        else{ //Erros possíveis na hora de emitir o JSON! Irá aparecer no nosso servidor!
             if(!mysqli_stmt_prepare($stmt, $queryCommand)){
                 echo 'Failed to prepare statement!'. mysqli_error($connect);
             }
             else{
                 echo 'Failed charset!';
             }
-        }*/
+        }
         mysqli_close($connect);
 
     }

@@ -3,14 +3,12 @@ function checkCoordAlreadyExist($inputeData){
     require("connect.php");
     $sql = "SELECT latitude, longitude FROM local";
     $response = mysqli_query($connect, $sql);
-    $exist = true;
+    $exist = false;
     if($response){
         while($row = mysqli_fetch_array($response)){
             if (($row['latitude'] === $inputeData['latitude']) && ($row['longitude'] === $inputeData['longitude'])){
                 $exist = 1002;
-            }
-            elseif($exist != 1002){
-                    $exist = false;
+                break;
             }
         }
     }

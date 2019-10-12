@@ -11,11 +11,9 @@
         require("checkCoordenadas.php");
         validando($inputeData);
     }
-
     function validando($inputeData){
         $result = checkData($inputeData);
         if($result == 1001){
-
             require("geraERROS.php");
             cospeERROSemJSON($result);
         }

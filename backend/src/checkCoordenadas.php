@@ -8,9 +8,7 @@ function checkCoordAlreadyExist($inputeData){
         while($row = mysqli_fetch_array($response)){
             if (($row['latitude'] == $inputeData['latitude']) && ($row['longitude'] == $inputeData['longitude'])){
                 $exist = 1002;
-            }
-            elseif($exist != 1002){
-                $exist = false;
+                break;
             }
         }
     }
