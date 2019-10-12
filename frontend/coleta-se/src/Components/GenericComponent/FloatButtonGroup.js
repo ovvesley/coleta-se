@@ -23,14 +23,14 @@ export default class FloatButtonGroup extends Component {
               },
               {
                 icon: "star",
-                label: "Tenho uma sugestão",
-                onPress: () => {}
+                label: "Sobre nós",
+                onPress: () => this.props.showModal()
               }
             ]}
             onStateChange={({ open }) => this.setState({ open })}
             onPress={() => {
               if (this.state.open) {
-                console.log("FloatButton!")
+                console.log("FloatButton!");
               }
             }}
           />

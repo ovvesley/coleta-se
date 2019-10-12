@@ -116,7 +116,8 @@ export default class Mapa extends Component {
             <View></View>
           )}
         </MapView>
-        <FloatButtonGroup enableNovoLocal={this.enableNovoLocal} visible={this.state.modal.visible} showModal={this._showModal} />
+        <FloatButtonGroup enableNovoLocal={this.enableNovoLocal} showModal={this._showModal} />
+        <ModalSugestoes visible={this.state.modal.visible} hideModal={this._hideModal}/>
       </View>
     );
   }
