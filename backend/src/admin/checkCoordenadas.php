@@ -1,16 +1,16 @@
 <?php
 function checkCoordAlreadyExist($inputeData){
-    require_once("connect.php");
+    require("connect.php");
     $sql = "SELECT latitude, longitude FROM local";
     $response = mysqli_query($connect, $sql);
-    $exist = false;
+    $exist = true;
     if($response){
         while($row = mysqli_fetch_array($response)){
-            if (($row['latitude'] == $inputeData['latitude']) && ($row['longitude'] == $inputeData['longitude'])){
+            if (($row['latitude'] === $inputeData['latitude']) && ($row['longitude'] === $inputeData['longitude'])){
                 $exist = 1002;
             }
-            else{
-                $exist = false;
+            elseif($exist != 1002){
+                    $exist = false;
             }
         }
     }

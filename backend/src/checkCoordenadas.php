@@ -9,7 +9,7 @@ function checkCoordAlreadyExist($inputeData){
             if (($row['latitude'] == $inputeData['latitude']) && ($row['longitude'] == $inputeData['longitude'])){
                 $exist = 1002;
             }
-            else{
+            elseif($exist != 1002){
                 $exist = false;
             }
         }
