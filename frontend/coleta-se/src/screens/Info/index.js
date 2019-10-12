@@ -23,7 +23,7 @@ export default function Info() {
 
       <Card title="Como posso descartar isso?">
         <Image
-          source={require("../../../assets/lamp2.png")}
+          source={require("../../../assets/lamp.png")}
           style={{ width: 60, height:60 }}
         />
         <Text style={styles.textBody}>
@@ -63,6 +63,36 @@ export default function Info() {
           O lixo eletrônico deve ser separado dos resíduos orgânicos.
           O descarte deve ser feito em locais apropriados, como: empresas,
           cooperativas de reciclagem, centros de estudos.
+        </Text>
+      </Card>
+
+      <Card title="Como posso descartar isso?">
+        <Image
+          source={require("../../../assets/plastic.png")}
+          style={{ width: 50, height: 60 }}
+        />
+        <Text style={styles.textBody}>
+          O plástico é o material mais utilizado no nosso dia-a-dia, praticamente, tudo é feito de
+          plástico. É de conhecimento geral que o plástico demora muito para se decompor, daí a
+          importância da reciclagem.
+          O plástico além de reciclagem, pode ser facilmente reutilizado, dado a sua facilidade e suas
+          "1001 utilidades".
+          O descarte deve ser feito em locais adequados, mas sempre dê preferência ao reuso.
+        </Text>
+      </Card>
+
+      <Card title="Como posso descartar isso?">
+        <Image
+          source={require("../../../assets/iron.png")}
+          style={{ width: 30, height: 30 }}
+        />
+        <Text style={styles.textBody}>
+          O metal é um dos materiais mais utilizados no nosso dia-a-dia. É de extrema importância
+          para o meio ambiente que esse material seja reciclado.
+          A reciclagem consegue evitar que eles acabem de ir pros rios, aterros sanitários e lagos.
+          O metal reciclado é praticamente igual ao comum. Pode ser reciclado várias vezes sem
+          perder a qualidade.
+          O descarte deve ser feito nos locais adequados.
         </Text>
       </Card>
 
