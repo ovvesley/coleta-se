@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BottomNavigation, Text } from "react-native-paper";
+import { BottomNavigation, Text, ActivityIndicator } from "react-native-paper";
 import { View } from "react-native";
 
 import url from "./shared/baseUrl";
@@ -81,7 +81,7 @@ export default class Main extends Component {
       />
     ) : (
       <View style={{ flex: 1, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{ fontSize: 20 }}>Loading</Text>
+        <ActivityIndicator size="large" color="#8c655d" />
       </View>
     );
   }
