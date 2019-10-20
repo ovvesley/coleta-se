@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { BottomNavigation, Text } from "react-native-paper";
+import { BottomNavigation, Text, ActivityIndicator } from "react-native-paper";
 import { View } from "react-native";
 
 import url from "./shared/baseUrl";
 import Info from "./screens/Info";
 import List from "./screens/List";
 import Mapa from "./screens/Mapa";
+import baseUrl from "./shared/baseUrl";
 
 export default class Main extends Component {
   constructor(props) {
@@ -37,7 +38,7 @@ export default class Main extends Component {
 
   _handleIndexChange = index => this.setState({ index });
   _renderScene = BottomNavigation.SceneMap({
-    mapa: () => <Mapa spots={this.state.spots} />,
+    mapa: () => <Mapa spots={this.state.spots} postSpots={this.postSpots} />,
     list: () => <List spots={this.state.spots} />,
     info: Info
   });
@@ -57,6 +58,18 @@ export default class Main extends Component {
     }
   }
 
+  postSpots(data){
+  const formData  = new FormData();
+  for(let name in data) {
+    formData.append(name, data[name]);
+  }
+  fetch(baseUrl + 'validaDados.php', {
+    method: 'POST',
+    body: formData
+  });
+  console.log(formData)
+  }
+
   render() {
     return this.state.spots[0] ? (
       <BottomNavigation
@@ -68,7 +81,7 @@ export default class Main extends Component {
       />
     ) : (
       <View style={{ flex: 1, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{ fontSize: 20 }}>Loading</Text>
+        <ActivityIndicator size="large" color="#8c655d" />
       </View>
     );
   }

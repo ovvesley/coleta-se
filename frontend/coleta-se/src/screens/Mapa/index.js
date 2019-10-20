@@ -5,6 +5,7 @@ import MapView, { Marker } from "react-native-maps";
 import styles from "./styles";
 import FloatButtonGroup from "../../Components/GenericComponent/FloatButtonGroup";
 import ModalSugestoes from "../../Components/GenericComponent/ModalSugestoes";
+import ModalNovoLocal from "../../Components/GenericComponent/ModalNovoLocal";
 import { Input, Button } from "react-native-elements";
 
 export default class Mapa extends Component {
@@ -21,16 +22,36 @@ export default class Mapa extends Component {
       modal: {
         visible: false
       },
+      modalNovoLocal: {
+        visible: false
+      },
       enableNovoLocal: false,
       novoLocal: {
         region: {},
-        title: "Clique para inserir um novo local.",
+        title: "",
         description: ""
       }
     };
 
     this.enableNovoLocal = this.enableNovoLocal.bind(this);
+    this.handleTitle = this.handleTitle.bind(this);
+    this.handleDescription = this.handleDescription.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.cancelModalNovoLocal = this.cancelModalNovoLocal.bind(this);
   }
+
+  handleTitle(title) {
+    this.setState(state => ({
+      novoLocal: { ...state.novoLocal, title: title }
+    }));
+  }
+
+  handleDescription(description) {
+    this.setState(state => ({
+      novoLocal: { ...state.novoLocal, description }
+    }));
+  }
+
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       position => {
@@ -54,6 +75,10 @@ export default class Mapa extends Component {
   }
   _showModal = () => this.setState({ modal: { visible: true } });
   _hideModal = () => this.setState({ modal: { visible: false } });
+  _showModalNovoLocal = () =>
+    this.setState({ modalNovoLocal: { visible: true } });
+  _hideModalNovoLocal = () =>
+    this.setState({ modalNovoLocal: { visible: false } });
 
   enableNovoLocal() {
     this.setState(state => ({
@@ -61,10 +86,44 @@ export default class Mapa extends Component {
     }));
   }
 
-  addNewLocal(e) {
+  addNovoLocal(e) {
     const { coordinate } = e.nativeEvent;
     this.setState({ novoLocal: { region: coordinate } });
-    console.log(this.state.novoLocal);
+
+    this._showModalNovoLocal();
+  }
+
+  setNovoLocal({ title, description }) {
+    this.setState(state => ({
+      novoLocal: {
+        ...state.novoLocal,
+        title,
+        description
+      }
+    }));
+  }
+
+  handleSubmit() {
+    this._hideModalNovoLocal();
+    const novoLocal = this.state.novoLocal;
+    console.log(novoLocal);
+    this.setState({
+      enableNovoLocal: false
+    });
+    this.props.postSpots({
+      descricao: novoLocal.description,
+      titulo: novoLocal.title,
+      latitude: novoLocal.region.latitude,
+      longitude: novoLocal.region.longitude
+    });
+  }
+
+  cancelModalNovoLocal() {
+    this._hideModalNovoLocal();
+
+    this.setState({
+      enableNovoLocal: false
+    });
   }
 
   render() {
@@ -78,7 +137,13 @@ export default class Mapa extends Component {
     return (
       <View style={{ flex: 1 }}>
         {this.state.enableNovoLocal && (
-          <Text style={{ textAlign: "center", backgroundColor: "green", marginTop:4 }}>
+          <Text
+            style={{
+              textAlign: "center",
+              backgroundColor: "green",
+              marginTop: 4
+            }}
+          >
             Modo adicionar local
           </Text>
         )}
@@ -88,7 +153,7 @@ export default class Mapa extends Component {
           region={this.state.region}
           showsUserLocation
           onPress={
-            !this.state.enableNovoLocal ? null : e => this.addNewLocal(e)
+            !this.state.enableNovoLocal ? null : e => this.addNovoLocal(e)
           }
         >
           {this.state.markers.map(marker => (
@@ -111,13 +176,34 @@ export default class Mapa extends Component {
               coordinate={this.state.novoLocal.region}
               title={"Insira"}
               description={"..."}
+              // onPress={() => this._showModalNovoLocal()}
             />
           ) : (
             <View></View>
           )}
         </MapView>
-        <FloatButtonGroup enableNovoLocal={this.enableNovoLocal} showModal={this._showModal} />
-        <ModalSugestoes visible={this.state.modal.visible} hideModal={this._hideModal}/>
+        <FloatButtonGroup
+          enableNovoLocal={this.enableNovoLocal}
+          showModal={this._showModal}
+        />
+        <ModalSugestoes
+          visible={this.state.modal.visible}
+          hideModal={this._hideModal}
+        />
+        {this.state.novoLocal.region.hasOwnProperty("latitude") && (
+          <ModalNovoLocal
+            visible={this.state.modalNovoLocal.visible}
+            region={this.state.novoLocal.region}
+            inputsValues={this.state.novoLocal}
+            setNovoLocal={this.setNovoLocal}
+            valueText={this.state.novoLocal}
+            handleTitle={this.handleTitle}
+            handleDescription={this.handleDescription}
+            hideModal={this._hideModalNovoLocal}
+            handleSubmit={this.handleSubmit}
+            cancel={this.cancelModalNovoLocal}
+          />
+        )}
       </View>
     );
   }
