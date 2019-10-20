@@ -28,13 +28,30 @@ export default class Mapa extends Component {
       enableNovoLocal: false,
       novoLocal: {
         region: {},
-        title: "Clique para inserir um novo local.",
+        title: "",
         description: ""
       }
     };
 
     this.enableNovoLocal = this.enableNovoLocal.bind(this);
+    this.handleTitle = this.handleTitle.bind(this);
+    this.handleDescription = this.handleDescription.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.cancelModalNovoLocal = this.cancelModalNovoLocal.bind(this);
   }
+
+  handleTitle(title) {
+    this.setState(state => ({
+      novoLocal: { ...state.novoLocal, title: title }
+    }));
+  }
+
+  handleDescription(description) {
+    this.setState(state => ({
+      novoLocal: { ...state.novoLocal, description }
+    }));
+  }
+
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       position => {
@@ -72,7 +89,7 @@ export default class Mapa extends Component {
   addNovoLocal(e) {
     const { coordinate } = e.nativeEvent;
     this.setState({ novoLocal: { region: coordinate } });
-    console.log(this.state.novoLocal);
+
     this._showModalNovoLocal();
   }
 
@@ -84,6 +101,20 @@ export default class Mapa extends Component {
         description
       }
     }));
+  }
+
+  handleSubmit() {
+    this._hideModalNovoLocal();
+    const novoLocal = this.state.novoLocal;
+    console.log(novoLocal);
+  }
+
+  cancelModalNovoLocal() {
+    this._hideModalNovoLocal();
+
+    this.setState({
+      enableNovoLocal: false
+    });
   }
 
   render() {
@@ -154,8 +185,14 @@ export default class Mapa extends Component {
           <ModalNovoLocal
             visible={this.state.modalNovoLocal.visible}
             region={this.state.novoLocal.region}
+            inputsValues={this.state.novoLocal}
             setNovoLocal={this.setNovoLocal}
+            valueText={this.state.novoLocal}
+            handleTitle={this.handleTitle}
+            handleDescription={this.handleDescription}
             hideModal={this._hideModalNovoLocal}
+            handleSubmit={this.handleSubmit}
+            cancel={this.cancelModalNovoLocal}
           />
         )}
       </View>

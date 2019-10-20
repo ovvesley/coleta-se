@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Modal, Portal, Button, Provider } from "react-native-paper";
-import { Input, Icon,  Card  } from "react-native-elements";
-import { Text, View, Image } from "react-native";
+import { Modal, Portal, Provider } from "react-native-paper";
+import { Input, Icon, Card, Button } from "react-native-elements";
+import { Text, View, Image, TextInput } from "react-native";
 import { styles } from "./modal-style";
 
 export default class ModalNovoLocal extends Component {
@@ -12,10 +12,27 @@ export default class ModalNovoLocal extends Component {
           <Modal visible={this.props.visible}>
             <Card containerStyle={{ borderRadius: 20 }} title={"Informações"}>
               <View style={styles.body}>
-                <Text>
-                {this.props.region.latitude + " " + this.props.region.longitude}
+                <TextInput value={this.props.region.latitude.toString()} />
+                <TextInput value={this.props.region.longitude.toString()} />
+                <TextInput
+                  onChangeText={this.props.handleTitle}
+                  placeholder="Entre com um Titulo"
+                  value={this.props.inputsValues.title}
+                />
+                <TextInput
+                  onChangeText={this.props.handleDescription}
+                  placeholder="Entre com um Descrição"
+                  value={this.props.inputsValues.description}
+                />
 
-                </Text>
+                <Button
+                  title={"Compartilhar Local!"}
+                  onPress={() => this.props.handleSubmit()}
+                />
+                 <Button
+                  title={"Cancelar"}
+                  onPress={this.props.cancel}
+                />
               </View>
             </Card>
           </Modal>
