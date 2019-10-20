@@ -107,6 +107,15 @@ export default class Mapa extends Component {
     this._hideModalNovoLocal();
     const novoLocal = this.state.novoLocal;
     console.log(novoLocal);
+    this.setState({
+      enableNovoLocal: false
+    });
+    this.props.postSpots({
+      descricao: novoLocal.description,
+      titulo: novoLocal.title,
+      latitude: novoLocal.region.latitude,
+      longitude: novoLocal.region.longitude
+    });
   }
 
   cancelModalNovoLocal() {

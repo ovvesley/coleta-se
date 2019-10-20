@@ -6,6 +6,7 @@ import url from "./shared/baseUrl";
 import Info from "./screens/Info";
 import List from "./screens/List";
 import Mapa from "./screens/Mapa";
+import baseUrl from "./shared/baseUrl";
 
 export default class Main extends Component {
   constructor(props) {
@@ -37,7 +38,7 @@ export default class Main extends Component {
 
   _handleIndexChange = index => this.setState({ index });
   _renderScene = BottomNavigation.SceneMap({
-    mapa: () => <Mapa spots={this.state.spots} />,
+    mapa: () => <Mapa spots={this.state.spots} postSpots={this.postSpots} />,
     list: () => <List spots={this.state.spots} />,
     info: Info
   });
@@ -55,6 +56,18 @@ export default class Main extends Component {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  postSpots(data){
+  const formData  = new FormData();
+  for(let name in data) {
+    formData.append(name, data[name]);
+  }
+  fetch(baseUrl + 'validaDados.php', {
+    method: 'POST',
+    body: formData
+  });
+  console.log(formData)
   }
 
   render() {
