@@ -44,7 +44,7 @@ Para testar o aplicativo no seu aparelho, lembre-se de estar conectado ao mesmo 
 
 Basta baixar o aplicativo do '**expo**' na PlayStore e scanear o *QR code* disponibilizado pelo seu terminal (ou mesmo o disponibilizado no localhost:19002 no seu navegador) e testar!
 
-##### Também estamos disponibilizando o apk  para download do aplicativo em sistemas android através deste [link]()
+##### Também estamos disponibilizando o apk  para download do aplicativo em sistemas android através deste [link](https://drive.google.com/open?id=1Bt0Gfqj_e3XfmeNIu-gHtuqGgeH_rmzA)
 #### **iOS**
 
 Para testar nosso protótipo, basta baixar o aplicativo do '**expo**' na App Store e logo após isso abrir sua câmera! Com ela, scaneie o **QR code** disponibilizado pelo terminal (ou o mesmo disponibilizado no localhost:19002 em seu navegador). Seu telefone automaticamente irá pedir para abrir o aplicativo do '**expo**'. Agora basta testar!
