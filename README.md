@@ -44,8 +44,18 @@ Para testar o aplicativo no seu aparelho, lembre-se de estar conectado ao mesmo 
 
 Basta baixar o aplicativo do '**expo**' na PlayStore e scanear o *QR code* disponibilizado pelo seu terminal (ou mesmo o disponibilizado no localhost:19002 no seu navegador) e testar!
 
+##### Também estamos disponibilizando o apk  para download do aplicativo em sistemas android através deste [link]()
 #### **iOS**
 
 Para testar nosso protótipo, basta baixar o aplicativo do '**expo**' na App Store e logo após isso abrir sua câmera! Com ela, scaneie o **QR code** disponibilizado pelo terminal (ou o mesmo disponibilizado no localhost:19002 em seu navegador). Seu telefone automaticamente irá pedir para abrir o aplicativo do '**expo**'. Agora basta testar!
+
+### Testando através do browser
+
+Para realizar o teste no browser, basta acessar o [link](https://expo.io/@vvesly/coleta-se). Feito isso, clique em "Open project in the browser", abaixo do QRCode, e após isso clique direto em "Open project".
+Uma janela irar abrir com um celular. Clique nela e conduza a tela do celular até abaixo. Em seguida, clique em "Open project using expo".
+
+Pronto! Agora basta testar nosso app!
+
+P.S: Você também pode usar o QR Code que o link disponibiliza caso tenha o app do expo em seu celular. Porém, só poderá fazer isso via Android.
 
 ##### Para mais informações sobre a utilização, entre em contato: ezamoradev@gmail.com | wsf.ley@gmail.com | gabriel.amaral@aluno.cefet-rj.br 
